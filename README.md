@@ -60,13 +60,13 @@ clean test
 ### Параметры сборки
 
 * <code>REMOTE_URL</code> – адрес удаленного сервера, на котором будут запускаться тесты. По умолчанию – <code>https://user1:1234@selenoid.autotests.cloud/wd/hub</code>
-* <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По умолчанию – <code>chrome</code>.
-* <code>BROWSER_VER</code> – версия браузера, в которой будут выполняться тесты. По умолчанию – <code>122.0</code>.
-* <code>BROWSER_RES</code> – размер окна браузера, в котором будут выполняться тесты. По умолчанию – <code>1920x1080</code>.
+* <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По умолчанию – <code>chrome</code>
+* <code>BROWSER_VER</code> – версия браузера, в которой будут выполняться тесты. По умолчанию – <code>122.0</code>
+* <code>BROWSER_RES</code> – размер окна браузера, в котором будут выполняться тесты. По умолчанию – <code>1920x1080</code>
 
 <code>-Denv=remote</code> загружает конфигурационный файл удалённого запуска, активирующий дополнительные настройки автотестов, которые не используются при локальном запуске.
 
-## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logos/Jenkins.svg"> [Сборка](https://jenkins.autotests.cloud/view/C24/job/C24-MolokoVelosiped-homework17/) в Jenkins
+## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logos/Jenkins.svg"> [Сборка](https://jenkins.autotests.cloud/job/C24-MolokoVelosiped-ibs-ui-tests/) в Jenkins
 
 Для запуска сборки необходимо перейти в раздел <code>Build with parameters</code> и нажать кнопку <code>Build</code>.
 <p align="center">
@@ -74,7 +74,7 @@ clean test
 </p>
 После выполнения сборки, в блоке <code>Build History</code> напротив номера сборки появятся значки <code>Allure Report</code> и <code>Allure TestOps</code>, при клике на которые откроется страница с сформированным html-отчетом и тестовой документацией соответственно.
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logos/AllureReport.svg"> [Пример](https://jenkins.autotests.cloud/view/C24/job/C24-MolokoVelosiped-homework17/6/allure/) Allure-отчёта
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logos/AllureReport.svg"> [Пример](https://jenkins.autotests.cloud/job/C24-MolokoVelosiped-ibs-ui-tests/2/allure/) Allure-отчёта
 
 <p align="center">
 <img title="Общий вид отчёта Allure" src="media/screencaps/AllureOverview.png">
@@ -84,10 +84,10 @@ clean test
 
 * Тест-кейсы, разделённые на папки
 * Описание шагов тестов
-* Скриншот страницы на последнем шаге;
-* Page Source;
-* Логи браузерной консоли;
-* Видео выполнения автотеста.
+* Скриншот страницы на последнем шаге
+* Page Source
+* Логи браузерной консоли
+* Видео выполнения автотеста
 
 ### Раздел Suites
 
@@ -101,23 +101,29 @@ clean test
 <img title="Раздел Behaviors отчёта Allure" src="media/screencaps/AllureBehaviors.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logos/AllureTestOps.svg"> [Интеграция](https://allure.autotests.cloud/project/4071/dashboards) с Allure TestOps
+## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logos/AllureTestOps.svg"> [Интеграция](https://allure.autotests.cloud/project/4174/dashboards) с Allure TestOps
 
-На *Dashboard* в <code>Allure TestOps</code> видна статистика количества тестов: сколько из них добавлены и проходятся вручную (на скриншоте ручной тест можно увидеть в списке в статусе Draft), сколько автоматизированы. Новые тесты, а также результаты прогона приходят по интеграции при каждом запуске сборки.
+На *Dashboard* в <code>Allure TestOps</code> видна статистика количества тестов: сколько из них добавлены и проходятся вручную, сколько автоматизированы. Новые тесты приходят по интеграции при каждом запуске сборки вместе с результатами их прохождения.
 
 <p align="center">
 <img title="Дэшборд Allure TestOps" src="media/screencaps/TestOpsDashboard.png">
 </p>
 
-### Результат выполнения автотеста
+### Тест-кейс, сгенерированный из автотеста
 
 <p align="center">
-<img title="Результаты теста в Allure TestOps" src="media/screencaps/TestOpsResults.png">
+<img title="Результаты теста в Allure TestOps №1" src="media/screencaps/TestOpsResults1.png">
 </p>
 
-## <img width="4%" style="vertical-align:middle" title="Jira" src="media/logos/Jira.svg"> [Интеграция](https://jira.autotests.cloud/browse/HOMEWORK-1120) с Jira
+### Тест-кейс ручной проверки
 
-Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>, в тикете отображается, какие тест-кейсы были написаны в рамках задачи и их прогоны.
+<p align="center">
+<img title="Результаты теста в Allure TestOps №2" src="media/screencaps/TestOpsResults2.png">
+</p>
+
+## <img width="4%" style="vertical-align:middle" title="Jira" src="media/logos/Jira.svg"> [Интеграция](https://jira.autotests.cloud/browse/HOMEWORK-1188) с Jira
+
+Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>, в тикете отображаются привязанные тест-кейсы и результаты их запусков.
 
 <p align="center">
 <img title="Тикет в Jira" src="media/screencaps/Jira.png">
