@@ -18,7 +18,7 @@ public class ContactsPage {
 
     @Step("Открываем страницу контактов")
     public ContactsPage openPage() {
-        open("contacts/");
+        open("/contacts");
         return this;
     }
 
