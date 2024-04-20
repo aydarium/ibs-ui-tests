@@ -32,7 +32,7 @@ public class ContactsPage {
 
     @Step("Раскрываем раздел с юридическим адресом (есть в некоторых городах)")
     public ContactsPage clickMapInfo() {
-        mapInfoCollapsible.click();
+        mapInfoCollapsible.scrollIntoView("{block: \"center\", inline: \"center\"}").click();
         return this;
     }
 
