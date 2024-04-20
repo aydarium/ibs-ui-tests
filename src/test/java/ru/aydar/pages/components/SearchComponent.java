@@ -10,7 +10,9 @@ public class SearchComponent {
     private final SelenideElement
             searchButton = $(".js-header-search"),
             searchPopUp = $(".search"),
-            searchInput = $(".js-search-input");
+            searchInput = $(".js-search-input"),
+            searchTabs = $(".search-tabs"),
+            searchBlocks = $(".search-blocks");
 
     @Step("Нажимаем на кнопку поиска по сайту")
     public void click() {
@@ -28,4 +30,18 @@ public class SearchComponent {
         searchInput.shouldHave(attribute("placeholder", "Поиск по сайту"));
     }
 
+    @Step("Выполняем поиск по запросу '{value}'")
+    public void sendInput(String value) {
+        searchInput.type(value).pressEnter();
+    }
+
+    @Step("Проверяем наличие вкладок в результатах поиска")
+    public void checkTabsAreVisible() {
+        searchTabs.shouldBe(visible);
+    }
+
+    @Step("Проверяем, что результаты поиска отображаются")
+    public void checkResultsAreVisible() {
+        searchBlocks.shouldBe(visible);
+    }
 }

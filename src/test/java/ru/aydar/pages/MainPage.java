@@ -3,31 +3,26 @@ package ru.aydar.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.aydar.pages.components.BurgerComponent;
+import ru.aydar.pages.components.FooterComponent;
+import ru.aydar.pages.components.HeaderComponent;
 import ru.aydar.pages.components.SearchComponent;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
     private final SelenideElement
-            topSlideDescription = $(".top-slide__desc"),
-            footerCopyright = $(".footer-copy"),
-            headerLinks = $(".header-links");
+            topSlideDescription = $(".top-slide__desc");
 
     SearchComponent searchComponent = new SearchComponent();
     BurgerComponent burgerComponent = new BurgerComponent();
+    HeaderComponent headerComponent = new HeaderComponent();
+    FooterComponent footerComponent = new FooterComponent();
 
     @Step("Открываем главную страницу")
     public MainPage openPage() {
         open("");
-        return this;
-    }
-
-    @Step("Нажимаем на кнопку смены языка сайта '{value}'")
-    public MainPage switchLang(String value) {
-        headerLinks.$(byText(value)).click();
         return this;
     }
 
@@ -37,9 +32,13 @@ public class MainPage {
         return this;
     }
 
-    @Step("Проверяем, что в футере сайта написан копирайт '{value}'")
+    public MainPage switchLang(String value) {
+        headerComponent.clickLink(value);
+        return this;
+    }
+
     public MainPage checkCopyrightTextInFooter(String value) {
-        footerCopyright.scrollIntoView(true).shouldHave(text(value));
+        footerComponent.checkCopyrightText(value);
         return this;
     }
 
@@ -55,6 +54,21 @@ public class MainPage {
 
     public MainPage checkSearchHeader(String value) {
         searchComponent.checkHeader(value);
+        return this;
+    }
+
+    public MainPage performSearch(String value) {
+        searchComponent.sendInput(value);
+        return this;
+    }
+
+    public MainPage checkSearchTabsAreVisible() {
+        searchComponent.checkTabsAreVisible();
+        return this;
+    }
+
+    public MainPage checkSearchResultsAreVisible() {
+        searchComponent.checkResultsAreVisible();
         return this;
     }
 

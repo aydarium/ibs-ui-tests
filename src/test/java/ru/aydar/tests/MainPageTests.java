@@ -20,7 +20,8 @@ public class MainPageTests extends TestBase {
             popularSearchHeaderName = "Популярные запросы",
             lastSearchHeaderName = "Недавние запросы",
             englishShort = "Eng",
-            russianShort = "Ru";
+            russianShort = "Ru",
+            searchString = "Вакансии";
     List<String> sectionList = Arrays.asList("Решения и услуги", "Отраслевые решения", "Проекты", "Создано в IBS", "Карьера", "Медиацентр", "О компании");
 
     @Test
@@ -48,6 +49,19 @@ public class MainPageTests extends TestBase {
                 .checkSearchPlaceholder()
                 .checkSearchHeader(popularSearchHeaderName)
                 .checkSearchHeader(lastSearchHeaderName);
+    }
+
+    @Test
+    @DisplayName("Проверка поиска по сайту")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("aydarium")
+    void searchTest() {
+        mainPage
+                .openPage()
+                .clickSearch()
+                .performSearch(searchString)
+                .checkSearchResultsAreVisible()
+                .checkSearchTabsAreVisible();
     }
 
     @Test

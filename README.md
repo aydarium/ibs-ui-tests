@@ -38,7 +38,7 @@
 
 ## :male_detective: Покрытый функционал
 
-Тесты в проекте покрывают главную страницу и страницу контактов сайта. Локаторы элементов на страницах и действия с ними вынесены в отдельные классы PageObject, повторяющиеся компоненты (раздел поиска и боковое меню) отделены от классов страниц.
+Тесты в проекте покрывают главную страницу сайта и страницы вакансий, контактов и проектов. Локаторы элементов на страницах и действия с ними вынесены в отдельные классы PageObject, повторяющиеся компоненты (раздел поиска и боковое меню) отделены от классов страниц. Где это уместно, используется параметризация тестов.
 
 ## :arrow_forward: Запуск автотестов
 
@@ -59,7 +59,7 @@ clean test
 
 ### Параметры сборки
 
-* <code>REMOTE_URL</code> – адрес удаленного сервера, на котором будут запускаться тесты. По умолчанию – <code>https://user1:1234@selenoid.autotests.cloud/wd/hub</code>
+* <code>REMOTE_URL</code> – адрес удаленного сервера, на котором будут запускаться тесты.
 * <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По умолчанию – <code>chrome</code>
 * <code>BROWSER_VER</code> – версия браузера, в которой будут выполняться тесты. По умолчанию – <code>122.0</code>
 * <code>BROWSER_RES</code> – размер окна браузера, в котором будут выполняться тесты. По умолчанию – <code>1920x1080</code>
@@ -74,7 +74,7 @@ clean test
 </p>
 После выполнения сборки, в блоке <code>Build History</code> напротив номера сборки появятся значки <code>Allure Report</code> и <code>Allure TestOps</code>, при клике на которые откроется страница с сформированным html-отчетом и тестовой документацией соответственно.
 
-## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logos/AllureReport.svg"> [Пример](https://jenkins.autotests.cloud/job/C24-MolokoVelosiped-ibs-ui-tests/2/allure/) Allure-отчёта
+## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logos/AllureReport.svg"> [Пример](https://jenkins.autotests.cloud/job/C24-MolokoVelosiped-ibs-ui-tests/allure/) Allure-отчёта
 
 <p align="center">
 <img title="Общий вид отчёта Allure" src="media/screencaps/AllureOverview.png">

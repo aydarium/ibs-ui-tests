@@ -12,9 +12,11 @@ import static com.codeborne.selenide.Selenide.*;
 public class ContactsPage {
     private final SelenideElement
             regionList = $(".contacts-tags"),
+            mapInfoCollapsible = $$(".collapse-link").find(visible),
             pressEmail = $(".press-contacts").$(byText("E-mail")).parent(),
             pressPhoneNumber = $(".press-contacts").$(byText("Телефон")).parent();
-    private final ElementsCollection addresses = $$("[itemprop=address]");
+    private final ElementsCollection addressItems = $$("[itemprop=address]"),
+            mapInfoAddressItems = $$(".map-info").find(visible).$$("[itemprop=address]");
 
     @Step("Открываем страницу контактов")
     public ContactsPage openPage() {
@@ -28,15 +30,21 @@ public class ContactsPage {
         return this;
     }
 
-    @Step("Проверяем, что отображается адрес '{value}'")
-    public ContactsPage checkVisibleAddress(String value) {
-        addresses.findBy(text(value)).shouldBe(visible);
+    @Step("Раскрываем раздел с юридическим адресом (есть в некоторых городах)")
+    public ContactsPage clickMapInfo() {
+        mapInfoCollapsible.click();
         return this;
     }
 
-    public ContactsPage checkAddressInRegion(String region, String address) {
-        clickRegion(region);
-        checkVisibleAddress(address);
+    @Step("Проверяем, что отображается адрес '{value}'")
+    public ContactsPage checkVisibleAddress(String value) {
+        addressItems.findBy(text(value)).shouldBe(visible).scrollIntoView("{block: \"center\", inline: \"center\"}");
+        return this;
+    }
+
+    @Step("Проверяем, что отображается юридический адрес '{value}'")
+    public ContactsPage checkVisibleMapInfo(String value) {
+        mapInfoAddressItems.findBy(text(value)).shouldBe(visible).scrollIntoView("{block: \"center\", inline: \"center\"}");
         return this;
     }
 
