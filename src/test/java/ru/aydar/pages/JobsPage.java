@@ -102,13 +102,13 @@ public class JobsPage {
 
     @Step("Ищем вакансии по запросу '{value}'")
     public JobsPage searchJobs(String value) {
-        searchInput.type(value).pressEnter();
+        searchInput.scrollIntoView("{block: \"center\", inline: \"center\"}").type(value).pressEnter();
         return this;
     }
 
     @Step("Проверяем, в заголовке первой вакансии содержится текст '{value}'")
     public JobsPage checkJobsTitle(String value) {
-        firstJobsTitle.shouldHave(text(value));
+        firstJobsTitle.scrollIntoView("{block: \"center\", inline: \"center\"}").shouldHave(text(value));
         return this;
     }
 }
